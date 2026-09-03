@@ -1,5 +1,5 @@
 import AuthLayout from '@/app/layouts/AuthLayout';
-import { SEGMENTS } from '@/shared/constants/routes';
+import { SEGMENTS } from '@/shared/config/routes';
 import { createBrowserRouter } from 'react-router';
 import { RouterProvider } from 'react-router/dom';
 import AppLayout from '../layouts/AppLayout';

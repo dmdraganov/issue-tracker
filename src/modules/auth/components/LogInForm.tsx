@@ -10,7 +10,10 @@ import { Input } from '@/shared/ui/input';
 import PasswordInput from '../components/PasswordInput';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { logInSchema, type LogInData } from '../models/login.schema';
+import {
+  logInFormSchema,
+  type LogInFormData,
+} from '../models/schemas/login.schema';
 
 export default function LogInForm() {
   const {
@@ -18,10 +21,10 @@ export default function LogInForm() {
     handleSubmit,
     formState: { errors },
   } = useForm({
-    resolver: zodResolver(logInSchema),
+    resolver: zodResolver(logInFormSchema),
   });
 
-  function onSubmit(data: LogInData) {
+  function onSubmit(data: LogInFormData) {
     console.log(data);
   }
 

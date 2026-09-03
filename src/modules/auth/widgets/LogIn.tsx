@@ -1,4 +1,4 @@
-import { PATHS } from '@/shared/constants/routes';
+import { PATHS } from '@/shared/config/routes';
 import { buttonVariants } from '@/shared/ui/button';
 import {
   Card,

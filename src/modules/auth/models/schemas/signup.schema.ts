@@ -1,7 +1,7 @@
 import z from 'zod';
-import { emailSchema, passwordSchema } from './schemas';
+import { emailSchema, passwordSchema } from './vo.schemas';
 
-export const signUpSchema = z
+export const SignUpFormSchema = z
   .object({
     name: z.string().min(1, 'Поле не может быть пустым'),
     surname: z.string().min(1, 'Поле не может быть пустым'),
@@ -14,4 +14,4 @@ export const signUpSchema = z
     path: ['passwordConfirm'],
   });
 
-export type SignUpData = z.infer<typeof signUpSchema>;
+export type SignUpFormData = z.infer<typeof SignUpFormSchema>;

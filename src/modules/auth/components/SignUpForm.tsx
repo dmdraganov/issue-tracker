@@ -10,18 +10,21 @@ import { Input } from '@/shared/ui/input';
 import PasswordInput from '../components/PasswordInput';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
-import { signUpSchema, type SignUpData } from '../models/signup.schema';
+import {
+  SignUpFormSchema,
+  type SignUpFormData,
+} from '../models/schemas/signup.schema';
 
 export default function SignUpForm() {
   const {
     register,
     formState: { errors },
     handleSubmit,
-  } = useForm<SignUpData>({
-    resolver: zodResolver(signUpSchema),
+  } = useForm<SignUpFormData>({
+    resolver: zodResolver(SignUpFormSchema),
   });
 
-  function onSubmit(data: SignUpData) {
+  function onSubmit(data: SignUpFormData) {
     console.log(data);
   }
 

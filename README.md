@@ -119,7 +119,7 @@ Pro
 
 - NestJS
 - PostgreSQL
-- Prisma
+- TypeORM
 - REST API
 - JWT + refresh tokens
 
