@@ -1,6 +1,6 @@
 import { apiRequest } from '@/shared/api/client';
 import type { LogInFormData } from '../models/schemas/login.schema';
-import { authenticationSchema } from './dtos/auth.dto';
+import { authenticationSchema } from './auth.schema';
 import type { SignUpFormData } from '../models/schemas/signup.schema';
 
 function authApiRequest(endpoint: string, options?: RequestInit) {
@@ -12,8 +12,7 @@ export async function logIn(logInData: LogInFormData) {
     method: 'POST',
     body: JSON.stringify(logInData),
   });
-  const data = authenticationSchema.parse(response);
-  //Положить данные в стор
+  return authenticationSchema.parse(response);
 }
 
 export async function signUp(signUpData: SignUpFormData) {
@@ -21,20 +20,18 @@ export async function signUp(signUpData: SignUpFormData) {
     method: 'POST',
     body: JSON.stringify(signUpData),
   });
-  const data = authenticationSchema.parse(response);
-  //Положить данные в стор
+  return authenticationSchema.parse(response);
 }
 
 export async function refresh() {
   const response = await authApiRequest('/refresh', {
     method: 'POST',
   });
-  const data = authenticationSchema.parse(response);
-  //Положить данные в стор
+  return authenticationSchema.parse(response);
 }
 
-export async function logOut() {
-  await authApiRequest('/logout', {
+export function logOut() {
+  return authApiRequest('/logout', {
     method: 'POST',
   });
 }
